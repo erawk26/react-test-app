@@ -29,13 +29,6 @@ const Sell = props => (
       <li>
         <em>bro</em>
       </li>
-      <li>
-        <strong>
-          <Link href="/">
-            <a>Home</a>
-          </Link>
-        </strong>
-      </li>
     </ul>
   </div>
 );
