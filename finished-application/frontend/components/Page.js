@@ -4,24 +4,28 @@ import Header from './Header';
 import Meta from './Meta';
 
 const theme = {
-  red: '#FF0000',
-  black: '#393939',
-  grey: '#3A3A3A',
-  lightgrey: '#E1E1E1',
-  offWhite: '#EDEDED',
-  maxWidth: '1000px',
-  bs: '0 12px 24px 0 rgba(0, 0, 0, 0.09)',
+  red: "#FF0000",
+  black: "#393939",
+  grey: "#3A3A3A",
+  lightgrey: "#E1E1E1",
+  offWhite: "#EDEDED",
+  offWhite: "#fff",
+  maxWidth: "1080px",
+  bs: "0 12px 24px 0 rgba(0, 0, 0, 0.09)"
 };
 
 const StyledPage = styled.div`
-  background: white;
+  background: ${props => props.theme.white};
   color: ${props => props.theme.black};
-`;
-
-const Inner = styled.div`
-  max-width: ${props => props.theme.maxWidth};
-  margin: 0 auto;
-  padding: 2rem;
+  .container {
+    margin: 0 auto;
+    &.mw {
+      max-width: ${props => props.theme.maxWidth};
+    }
+    &.pad {
+      padding: 2rem;
+    }
+  }
 `;
 
 injectGlobal`
@@ -59,7 +63,7 @@ class Page extends Component {
         <StyledPage>
           <Meta />
           <Header />
-          <Inner>{this.props.children}</Inner>
+          <div className="mw pad container">{this.props.children}</div>
         </StyledPage>
       </ThemeProvider>
     );

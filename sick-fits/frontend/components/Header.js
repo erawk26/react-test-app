@@ -1,39 +1,37 @@
+import React, { Component } from 'react';
 import Nav from "../components/Nav";
 import styled from "styled-components";
 const StyledHeader = styled.header`
-  display: flex;
-  align-items: stretch;
-  justify-content: space-between;
   margin: 0 auto;
-  padding: 10px 0;
+  padding: 0;
   .bar {
-    flex: 1;
+  }
+  .logo {
+    font-size: 3em;
   }
   .main-nav {
-    a {
-      display: block;
-      padding: 0.25em;
-    }
   }
   .sub-bar {
-    flex: 0;
   }
   > *,
   .main-nav {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
   }
 `;
-const Header = () => (
-  <StyledHeader>
-    <div className="bar">
-      <Nav styleName="main-nav" />
-    </div>
-    <div className="sub-bar">
-      <p>Search</p>
-    </div>
-    <div className="cart">Cart</div>
-  </StyledHeader>
-);
+class Header extends Component {
+  render() {
+    return <StyledHeader>
+        <div className="container flex ais mw pad">
+          <div className="bar flex grow-1">
+          <div className="logo"> 💩 </div>
+            <Nav styleName="main-nav flex jcfs aic" />
+          </div>
+        <div className="sub-bar flex aic grow-0">
+            <span className="link flex aic">Search</span>
+          </div>
+          <div className="cart link  flex aic grow-0">Cart</div>
+        </div>
+      </StyledHeader>;
+  }
+}
+
 export default Header;
